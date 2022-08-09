@@ -1,0 +1,92 @@
+Database
+
+Data --> useful information
+Database --> organise our data
+(DBMS)
+RDBMS --> Relational Database Management System
+organise data in rows-column(Table) in such a way that one table is related to another table.
+SQL --> Structured Query Language
+
+ACID -->
+Atomicity
+Consistency
+Isolation
+Durabilty
+
+Example:
+Company Database
+
+Departments:
+HR
+Accounts
+Engineer
+Sales
+Departments
+==============================
+Id		Dept_Name		Location		
+==============================
+111	HR					Block-A
+222	Sales				Block-B
+333	Accounts			Block-C
+
+Employees
+=================================
+EmpID		Emp_Name		Salary	Dept_id
+101		Rajesh		50000		222
+102		Suraj			70000		333
+103		Tom			40000		222
+
+Examples:-
+1) MySQL --> open source, oracle company
+2) PostgreSQL --> open source
+3) Oracle DB --> Oracle , Licence --> NET banking
+
+A --> B
+1000    	1000
+1000-100
+
+1000+100
+
+900		1100
+
+
+
+
+4) DB2 --> IBM
+
+
+
+NoSQL Database --> Not Only SQL
+1) MongoDB --> document oriented database
+2) CouchDB
+3) Cassendra 
+4) HBase --> coulmn oriented --> Facebook Messanger
+
+
+show databases;
+use hr;
+show table;
+
+select * from employee;
+mysql> select employee_id, first_name,salary,department_id from employees where department_id = 20 and department_id =30;
+Empty set (0.00 sec)
+
+mysql> select employee_id, first_name,salary,department_id from employees where department_id = 20 or department_id =30;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
