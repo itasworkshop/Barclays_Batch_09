@@ -1,0 +1,6 @@
+Use HR database for below queries
+1. WAQ to display employee information with their respective location.
+2. WAQ to display all employee information working in London.
+3. WAQ to display employees who joined in December.
+4. WAQ to display employees who joined from July 2002 to December 2002.
+5. WAQ to display employee information who is not making any bonus.
