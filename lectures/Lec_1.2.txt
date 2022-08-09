@@ -1,0 +1,38 @@
+Join --> displaying data from multiple table
+
+1) Natural Join
+2) Equi Join
+3) Right outer join
+4) Left outer join
+5) Self Join
+6) cross Join
+
+select first_name ,last_name, department_id
+from employees
+where first_name like 'John';
+
+WAQ to display department name for John Chen?
+
+
+select e.first_name ,e.last_name, e.department_id, d.department_name
+from employees e, departments d
+where e.first_name like 'John' and
+e.department_id = d.department_id;
+
+select e.first_name ,e.last_name, e.department_id, d.department_name
+from employees e join departments d
+on e.department_id = d.department_id
+where e.first_name like 'John';
+
+select e.first_name ,e.last_name, e.department_id, d.department_name
+from employees e join departments d
+on e.department_id = d.department_id;
+
+select e.first_name ,e.last_name, e.department_id, d.department_name
+from employees e left outer join departments d
+on e.department_id = d.department_id;
+
+WAQ to display employee name with respective manager name?
+select e.first_name Employees ,m.first_name Managers
+from employees e, employees m
+where e.manager_id = m.employee_id;
