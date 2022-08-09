@@ -1,0 +1,10 @@
+Groups:
+
+Group 1: Nitish Jain, Vidhi, Mansi Gupta, Sanjana
+Group 2: Arka, Khushi, Ishan, Dheeraj
+Group 3: Nidhi, Aiswarya, Param, Mehak Jain
+group 4: Sahil, Aatesh
+Group 5: Aditi, Ananya, Muskan, Gauri 
+Group 6: Rishabh jain, Ritik ,Tejas, Abheet
+Group 7: Muskan Jain, Dhruv, Labdhi
+Group 8: Siddhi, sadhvi,sakshi,jagruti
