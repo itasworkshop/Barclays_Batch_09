@@ -1,0 +1,83 @@
+RDBMS vs NoSQL
+
+RDBMS
+1) maintain schema --> first create then insert record
+
+Not Only SQL
+1) no schema
+
+MongoDB
+open source document oriented database
+
+1) bson = {}
+
+{"name": "abc",  "department":"IT"}
+
+key-value --> Document [one document can be totally different from another]
+
+2) we do not create tables we create collections of documents
+3) No ACID properties
+
+
+Advantanges:-
+1) Modern web application have different requirement of data designing
+2) Scalability
+3) distributed architecture --> plug in plug out system as my load increases
+scale out approach/ horizontal --> near linear scale
+4) open source
+
+
+
+show dbs;
+use test;
+show collections;
+
+
+_id --> special id field mainted by mongodb, mongodb automatically provides id to each document if we are not providing
+
+> db.myusers.save({"name": "abc",  "department":"IT"});
+WriteResult({ "nInserted" : 1 })
+> show collections;
+birlasoft
+mynew
+mynewcoll
+myusers
+student
+student1
+student2
+student3
+students
+weather
+> db.myusers.find();
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "abc", "department" : "IT" }
+>
+
+db.myusers.save({"_id": 101, "name": "Rajesh",  "department":"CS", subject: ['cs','ec']});
+
+> db.myusers.save({"_id": 101, "name": "Rajesh",  "department":"CS", subject: ['cs','ec']});
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 101 })
+> db.myusers.find();
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "abc", "department" : "IT" }
+{ "_id" : 101, "name" : "Rajesh", "department" : "CS", "subject" : [ "cs", "ec" ] }
+>
+
+> db.myusers.find();
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "abc", "department" : "IT" }
+{ "_id" : 101, "name" : "Rajesh", "department" : "CS", "subject" : [ "cs", "ec" ] }
+> db.myusers.find({$where:"this.name=='abc'"});
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "abc", "department" : "IT" }
+> db.myusers.update({name:'abc'},{$set:{name:'Suraj'}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.myusers.find();
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "Suraj", "department" : "IT" }
+{ "_id" : 101, "name" : "Rajesh", "department" : "CS", "subject" : [ "cs", "ec" ] }
+
+> db.myusers.deleteOne({$where:"this.name=='abc'"});
+{ "acknowledged" : true, "deletedCount" : 0 }
+> db.myusers.deleteOne({$where:"this.name=='Rajesh'"});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.myusers.find();
+{ "_id" : ObjectId("62f383fa0c5b3631dc8feddb"), "name" : "Suraj", "department" : "IT" }
+> db.myusers.deleteOne({});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.myusers.find();
