@@ -1,0 +1,35 @@
+Trigger --> special type of stored procedures those are automatically on some event.
+
+show tables;
+
+use hr;
+
+create table myuser(id int,name varchar(20));
+select * from myuser;
+
+insert into myuser values(101,'Rajesh');
+insert into myuser values(102,'Tom');
+
+set sql_safe_updates = 0;
+update myuser set name = 'Ram' where name like 'Suraj';
+
+select id,name from myuser where id = 102;
+
+drop table user_log;
+create table user_log(old_name varchar(20),update_time datetime);
+
+select * from user_log;
+
+create trigger update_user
+before update on myuser
+for each row
+insert into user_log 
+ set 
+ old_name = old.name,
+ update_time = now();
+ 
+ 
+drop trigger update_user;
+
+
+
