@@ -1,0 +1,85 @@
+Subquery/Nested Query --> query inside query
+
+WQA for giving information for employee named Susan?
+
+who is earning more than Susan?
+what susan's salary?
+
+select * 
+from employees 
+where salary > (select salary from employees where first_name like 'Susan');
+
+mysql> select * from employees where salary like 6500;
+Empty set (0.00 sec)
+like vs =
+
+mysql> select * from employees where salary like 6500;
+Empty set.
+
+mysql> select * from employees where salary = 6500;
+Results
+
+Subquery returns more than 1 row
+mysql> select * from employees where salary > (select salary from employees where first_name like 'Kevin');
+ERROR 1242 (21000): Subquery returns more than 1 row
+
+mysql> select * from employees where salary in (select salary from employees where first_name like 'Kevin');
+
+select first_name, salary + comission_pct
+from employees;
+
+Aggregate Functions
+sum
+avg
+count
+max
+min
+
+WAQ for displaying no of employees working in department no 90?
+
+
+select department_id, count(*)
+from employees
+where department_id = 90
+group by department_id;
+
+mysql> select department_id, count(*)
+    -> from employees
+    -> where department_id = 90
+    -> group by department_id;
+
+Having VS Group
+WAQ for displaying employee information only for departments where more than 10 employees are working?
+
+select department_id, count(*)
+from employees
+where department_id = 50
+group by department_id
+having count(*) > 10;
+
+select department_id, count(*) counting
+from employees
+group by department_id
+having count(*) > 2
+order by counting;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

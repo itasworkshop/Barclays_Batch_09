@@ -1,0 +1,6 @@
+Use HR database for below queries
+1. WAQ to display maximum earning person department wise?
+2. WAQ to display no of employees who join in same month?
+3. WAQ to display employees with maximum bonus(salary+commission) department wise.
+4. WAQ to display avg duration of employement department wise.
+5. WAQ to display no of employees location wise.
