@@ -1,0 +1,71 @@
+Stored Procedure
+
+collections of queries --> stored procedures
+
+1) performance
+pre compiled collection of queries
+2) named block
+3) reduces traffic between application server and database server
+
+			[] 	--> 	[]
+app server  			data server
+
+4) Resuable 
+5) Security --> assign to role
+
+
+example:
+create SP which provides information for employee John.
+
+use hr;
+
+delimiter &&
+create procedure get_emp_info_new()
+begin
+select * from employees where first_name like 'John';
+select count(*) from employees where first_name like 'John';
+end &&
+
+call get_emp_info_new();
+
+delimiter &&
+create procedure get_same_name_emp(in ename varchar(20))
+begin
+select * from employees where first_name like ename;
+select count(*) from employees where first_name like ename;
+end &&
+
+call get_same_name_emp('Kevin');
+
+delimiter &&
+create procedure get_max_sal_same_name_emp(in ename varchar(20),out maxsal int)
+begin
+select * from employees where first_name like ename;
+select max(salary) into maxsal 
+from employees 
+where first_name like ename;
+end &&
+
+call get_max_sal_same_name_emp('Kevin',@sal);
+
+select @sal;
+
+delimiter &&
+create procedure get_emp_info(inout eid int)
+begin
+select salary into eid from employees where employee_id = eid;
+end &&
+
+
+set @id = 100;
+call get_emp_info(@id);
+
+select @id;
+
+
+
+
+
+
+
+

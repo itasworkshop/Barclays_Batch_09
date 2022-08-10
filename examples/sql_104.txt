@@ -1,0 +1,12 @@
+Use HR database for below queries
+1. create SP which display no of employees who join in desired month?
+
+2. create SP which calculates bonus for employees
+2.1 Manager will get 15% of their salary
+bonus(salary + 15% of sal)
+2.2 HR will get 10% of their salary
+bonus(salary + 10% of sal)
+2.3 Accountant will get 5% of their salary
+bonus(salary + 5% of sal)
+
+It should create new table with first_name, designation, basic salary, bonus.
