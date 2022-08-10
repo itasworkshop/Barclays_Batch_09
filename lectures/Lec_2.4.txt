@@ -81,3 +81,15 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 > db.myusers.deleteOne({});
 { "acknowledged" : true, "deletedCount" : 1 }
 > db.myusers.find();
+
+
+
+Horizontal vs Vertical scaling
+sacle-up or scale-out approcah
+
+1) Vertical/scale-up
+existing server
+4 gb to 16 gb
+
+2) Horizontal/scale-out
+adding more nodes into system
